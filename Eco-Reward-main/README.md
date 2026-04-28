@@ -21,11 +21,12 @@ The application is built entirely on a modern frontend stack, using local ML mod
 - **Implementation**: The app loads the MobileNet model into the user's browser, requesting a live media stream (Webcam) or parsing an uploaded image. It processes the image tensor directly on the edge device to classify the object.
 - **Custom Mapping Layer**: The application maps the 1,000+ ImageNet classes returned by MobileNet down into our 5 core waste categories (`plastic`, `glass`, `metal`, `cardboard`, `paper`) using a custom semantic mapping algorithm for high accuracy.
 
-### IoT Sensor Simulation (Telemetry)
-The application leverages advanced state management to simulate hardware endpoints (smart bins).
-- Simulates Ultrasonic (UI-2) sensors for proximity/drop detection.
-- Simulates Load Cell (W-4) sensors for weight fluctuation detection.
-- Uses `setInterval` loops inside React `useEffect` hooks to simulate live telemetry data streaming to the Authentication Dashboard.
+### Hardware Integration (IoT)
+The application integrates with physical hardware endpoints to create a real-time smart bin experience.
+- **Microcontroller**: Uses an Arduino board to manage sensor inputs.
+- **Sensors**: Utilizes IR (Infrared) sensors to accurately detect when waste is disposed of correctly in the bin.
+- **Application Sync**: The hardware communicates with the web app to trigger a real-time pop-up notification confirming the waste has been detected.
+- **Reward System**: Automatically calculates and distributes rewards to the user based on the successful and correct disposal event.
 
 ## 📱 Dashboards
 
@@ -48,7 +49,7 @@ The application leverages advanced state management to simulate hardware endpoin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/srusti80736/Eco-Reward.git
+   git clone https://github.com/bhavya2516/Eco-Reward.git
    ```
 2. Install dependencies:
    ```bash
